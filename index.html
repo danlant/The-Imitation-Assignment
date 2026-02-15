@@ -1,8 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CSS3 Image Effects Assignment</title>
 
 <style>
@@ -10,86 +8,74 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background: #f4f4f4;
+    background: #eaeaea;
     margin: 0;
 }
 
 /* Title animation */
 h1 {
     margin: 30px 0;
-    animation: fadeSlide 1.5s ease forwards;
+    animation: dropIn 1.5s ease forwards;
     opacity: 0;
 }
 
-@keyframes fadeSlide {
+@keyframes dropIn {
     from {
+        transform: translateY(-50px);
         opacity: 0;
-        transform: translateY(-40px);
     }
     to {
-        opacity: 1;
         transform: translateY(0);
+        opacity: 1;
     }
 }
 
-/* Grid layout */
+/* Layout */
 .container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
     padding: 40px;
 }
 
-/* Image base style */
-.effect-box {
-    background: white;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-}
-
-.effect-box:hover {
-    transform: scale(1.05);
-}
-
-.effect-box img {
-    width: 100%;
+/* Base box */
+.box {
     height: 250px;
-    object-fit: cover;
+    border-radius: 10px;
     transition: all 0.5s ease;
 }
 
-/* Shadow Effect */
-.shadow img {
-    box-shadow: 10px 10px 25px rgba(0,0,0,0.5);
+/* Fake "images" using gradients */
+.shadow {
+    background: linear-gradient(45deg, #ff6b6b, #ffcc70);
+    box-shadow: 15px 15px 30px rgba(0,0,0,0.4);
 }
 
-/* Rounded Corners */
-.rounded img {
-    border-radius: 30px;
+.rounded {
+    background: linear-gradient(45deg, #4ecdc4, #1a535c);
+    border-radius: 40px;
 }
 
-/* Grayscale */
-.grayscale img {
+.grayscale {
+    background: linear-gradient(45deg, #888, #ccc);
     filter: grayscale(100%);
 }
 
-.grayscale img:hover {
+.grayscale:hover {
     filter: grayscale(0%);
 }
 
-/* Darkened */
-.darkened img {
+.darkened {
+    background: linear-gradient(45deg, #6a4c93, #1982c4);
     filter: brightness(50%);
 }
 
-.darkened img:hover {
+.darkened:hover {
     filter: brightness(100%);
 }
 
-/* Circle */
-.circle img {
+.circle {
+    background: linear-gradient(45deg, #8ac926, #ffca3a);
     border-radius: 50%;
 }
 
@@ -101,36 +87,17 @@ h1 {
 <h1>CSS3 Image Effects Assignment</h1>
 
 <div class="container">
-
-    <div class="effect-box shadow">
-        <h3>Shadow Effect</h3>
-        <img src="https://picsum.photos/400/300?random=1">
-    </div>
-
-    <div class="effect-box rounded">
-        <h3>Rounded Corners</h3>
-        <img src="https://picsum.photos/400/300?random=2">
-    </div>
-
-    <div class="effect-box grayscale">
-        <h3>Grayscale Filter</h3>
-        <img src="https://picsum.photos/400/300?random=3">
-    </div>
-
-    <div class="effect-box darkened">
-        <h3>Darkened Image</h3>
-        <img src="https://picsum.photos/400/300?random=4">
-    </div>
-
-    <div class="effect-box circle">
-        <h3>Circle Image</h3>
-        <img src="https://picsum.photos/400/300?random=5">
-    </div>
-
+    <div class="box shadow"></div>
+    <div class="box rounded"></div>
+    <div class="box grayscale"></div>
+    <div class="box darkened"></div>
+    <div class="box circle"></div>
 </div>
 
 </body>
 </html>
+
+
 
 
  
