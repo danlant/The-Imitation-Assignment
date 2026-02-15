@@ -1,30 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>CSS3 Image Manipulation</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive Flashcards</title>
+
+<style>
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6fb;
+    text-align: center;
+}
+
+/* Title animation */
+h1 {
+    margin-top: 30px;
+    animation: slideDown 1.2s ease forwards;
+    opacity: 0;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-40px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Image styling */
+.hero-image {
+    width: 250px;
+    margin: 20px auto;
+    display: block;
+    animation: fadeIn 2s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Flashcard layout */
+.flashcards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 40px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* Card styling */
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* Question */
+.question {
+    font-weight: bold;
+}
+
+/* Answer hidden initially */
+.answer {
+    margin-top: 10px;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.5s ease, max-height 0.5s ease;
+}
+
+/* Reveal on hover */
+.card:hover .answer {
+    opacity: 1;
+    max-height: 200px;
+}
+
+</style>
 </head>
 
 <body>
 
-  <h1>CSS3 Image Effects Assignment</h1>
+<h1>Study Flashcards</h1>
 
-  <div class="gallery">
+<!-- Make sure this filename matches exactly -->
+<img src="thinking.jpg" alt="Thinking Woman" class="hero-image">
 
-    <img src="image1.jpg" alt="Shadow effect" class="shadow">
+<div class="flashcards">
 
-    <img src="image2.jpg" alt="Rounded corners" class="rounded">
+    <div class="card">
+        <div class="question">What is HTML?</div>
+        <div class="answer">A markup language used to structure web pages.</div>
+    </div>
 
-    <img src="image3.jpg" alt="Grayscale filter" class="filter">
+    <div class="card">
+        <div class="question">What does CSS do?</div>
+        <div class="answer">It styles and designs web pages.</div>
+    </div>
 
-    <img src="image4.jpg" alt="Darkened image" class="dark">
+    <div class="card">
+        <div class="question">What is a div?</div>
+        <div class="answer">A container element used to group content.</div>
+    </div>
 
-    <div class="football"></div>
+    <div class="card">
+        <div class="question">What is a transition?</div>
+        <div class="answer">A smooth change between CSS property values.</div>
+    </div>
 
-    <img src="image5.jpg" alt="Circle sepia" class="circle">
+    <div class="card">
+        <div class="question">What is an animation?</div>
+        <div class="answer">A sequence of keyframed style changes.</div>
+    </div>
 
-  </div>
+    <div class="card">
+        <div class="question">What does hover mean?</div>
+        <div class="answer">When your mouse is placed over an element.</div>
+    </div>
+
+    <div class="card">
+        <div class="question">What is a grid layout?</div>
+        <div class="answer">A CSS system for creating rows and columns.</div>
+    </div>
+
+    <div class="card">
+        <div class="question">What is opacity?</div>
+        <div class="answer">Controls how transparent or visible something is.</div>
+    </div>
+
+</div>
 
 </body>
 </html>
+
+ 
